@@ -1,0 +1,257 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* BACKGROUND */
+body {
+  background-color: #fff;
+  background-image: url("images/ChatGPT Image Oct 19, 2025, 06_04_12 PM.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #3b0a45;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}
+
+/* NAVBAR (same as site) */
+.header {
+  background-color: #3b0a45;
+  color: white;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #3b0a45;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color: #f0a046;
+}
+
+/* MAIN PANEL */
+.admin-panel {
+  margin-top: 120px;
+  padding: 50px 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+/* HEADINGS */
+.panel-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #3b0a45;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #f0a046;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* COURSE & LECTURE FORM AREA */
+.add-course,
+.add-lecture {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.add-course input,
+.add-lecture input {
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  outline: none;
+  font-size: 1rem;
+  width: 260px;
+  transition: border 0.3s;
+}
+
+.add-course input:focus,
+.add-lecture input:focus {
+  border-color: #f82b74;
+}
+
+button {
+  background: linear-gradient(90deg, #f82b74, #f0a046);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(248, 43, 116, 0.3);
+}
+
+/* COURSE CARDS */
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #f0a046;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.course-card h3 {
+  font-size: 1.3rem;
+  color: #3b0a45;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.course-card p {
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.course-card button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* SELECT & LISTS */
+#course-select {
+  display: block;
+  margin: 0 auto 25px auto;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  width: 50%;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+#course-select:focus {
+  border-color: #f82b74;
+}
+
+/* LECTURES LIST */
+.lectures-list {
+  margin-top: 25px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.lecture-item {
+  background-color: #fdf6f0;
+  border-left: 4px solid #f0a046;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+
+.lecture-item:hover {
+  background-color: #f82b7420;
+  transform: translateX(5px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .admin-panel {
+    padding: 30px 20px;
+  }
+
+  .add-course input,
+  .add-lecture input {
+    width: 100%;
+  }
+
+  #course-select {
+    width: 90%;
+  }
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position:relative;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  transform: scale(1.3); /* visually enlarges it */
+  transform-origin: left center;
+}

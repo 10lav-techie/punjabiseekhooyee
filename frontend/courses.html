@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses | meriLipi</title>
+  <link rel="stylesheet" href="courses.css" />
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="nav-container">
+      <img src="images/ChatGPT Image Oct 14, 2025, 09_50_00 AM.png" alt="meriLipi Logo" class="logo" />
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html" class="active">Courses</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== COURSES SECTION ===== -->
+  <main class="courses-section">
+    <h2>Explore Our Punjabi Learning Courses</h2>
+    <p class="subtitle">Fun, interactive lessons to help children learn Punjabi easily!</p>
+
+    <div class="courses-container" id="coursesContainer">
+      <p>Loading courses...</p>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 meriLipi | Learning made fun for every child.</p>
+  </footer>
+
+  <!-- ===== FIREBASE SDK ===== -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD7ckqdouYiTiwBFVXBDvvtrb2oLFOfR3s",
+      authDomain: "merilipi-22ea6.firebaseapp.com",
+      projectId: "merilipi-22ea6",
+      storageBucket: "merilipi-22ea6.firebasestorage.app",
+      messagingSenderId: "1059715160088",
+      appId: "1:1059715160088:web:cb2274a9f21ed151038b6d",
+      measurementId: "G-BBW96C5DTY"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Fetch all courses from Firestore
+    async function loadCourses() {
+      const container = document.getElementById("coursesContainer");
+      container.innerHTML = "<p>Loading courses...</p>";
+
+      try {
+        const querySnapshot = await getDocs(collection(db, "courses"));
+        container.innerHTML = ""; // clear loading text
+
+        if (querySnapshot.empty) {
+          container.innerHTML = "<p>No courses available yet.</p>";
+          return;
+        }
+
+        querySnapshot.forEach((docSnap) => {
+          const c = docSnap.data();
+          const id = docSnap.id;
+
+          const card = document.createElement("div");
+          card.classList.add("course-card");
+          card.innerHTML = `
+            <img src="${c.image || 'images/alphabet.png'}" alt="${c.title}" />
+            <h3>${c.title}</h3>
+            <p>${c.description}</p>
+          `;
+
+          // ✅ Correct string interpolation here
+          card.addEventListener("click", () => {
+            window.location.href = `course-player.html?id=${id}`;
+          });
+
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+        container.innerHTML = "<p>⚠️ Failed to load courses. Please try again later.</p>";
+      }
+    }
+
+    // Load on page start
+    loadCourses();
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/* RESET + THEME */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #3b0a45;
+  
+}
+
+/* HEADER */
+.header {
+  background-color: #3b0a45;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #3b0a45;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 130px;
+  height: auto;
+  transform: scale(1.3);
+  transform-origin: left center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  opacity: 0.7;
+}
+
+.donate-btn {
+  background-color: #f82b74;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.donate-btn:hover {
+  transform: scale(1.1);
+}
+
+/* PATTERN BANNER */
+.pattern-banner {
+  position: relative;
+  background-color: #3b0a45;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 65px;
+  z-index: 10;
+}
+
+.pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+      45deg,
+      #52c8ed 0 100px,
+      #3b0a45 100px 200px
+    ),
+    repeating-linear-gradient(-45deg, #f0a046 0 100px, transparent 100px 200px);
+  background-size: 200px 200px;
+  opacity: 0.7;
+  z-index: 15;
+}
+
+.banner-text {
+  position: relative;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 20;
+  background-color: rgba(240, 160, 70, 0.9);
+  padding: 15px 25px;
+  border-radius: 40px;
+}
+
+/* ABOUT SECTION */
+.about {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  background: #fff;
+  background-image: url('images/ChatGPT\ Image\ Oct\ 19\,\ 2025\,\ 06_04_12\ PM.png');
+  background-size: cover;       /* Makes image cover entire screen */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat; /* Prevent tiling */
+}
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.685); /* White with transparency */
+  z-index: 1;
+}
+
+/* Make the text appear above the overlay */
+.about > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  color: #3b0a45;
+  margin-bottom: 40px;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about h3 {
+  color: #f82b74;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* TEAM SECTION */
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.member-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+}
+
+.member-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid #f82b74;
+  object-fit: cover;
+}
+
+.member-card h4 {
+  color: #3b0a45;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.member-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* FOOTER */
+.footer {
+  
+  background-color: #3b0a45;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  z-index: 19;
+}
+
+.footer p {
+  margin-bottom: 15px;
+}
+
+.footer hr {
+  margin: 30px auto;
+  width: 60%;
+  opacity: 0.3;
+}
+
+.small-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 10px 20px;
+  }
+
+  .banner-text {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+
+  .team-members {
+    gap: 25px;
+  }
+
+  .member-card {
+    width: 160px;
+    padding: 15px;
+  }
+
+  .member-card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text {
+    font-size: 18px;
+  }
+
+  .about h2 {
+    font-size: 1.8rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+
+  .member-card {
+    width: 140px;
+    padding: 10px;
+  }
+
+  .member-card img {
+    width: 70px;
+    height: 70px;
+  }
+}

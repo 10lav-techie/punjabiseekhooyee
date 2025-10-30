@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | meriLipi</title>
+  <link rel="stylesheet" href="admin-login.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="images/ChatGPT Image Oct 14, 2025, 09_50_00 AM.png" alt="meriLipi Logo" class="logo" />
+        
+      </div>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="#live-classes">Live Classes</a>
+        <a href="admin-login.html">Admin Panel</a>
+        <a href="#">Contact</a>
+        <button class="donate-btn">Login / Register</button>
+      </nav>
+    </div>
+
+    <!-- Colorful Pattern Banner -->
+    <div class="pattern-banner">
+      <div class="pattern"></div>
+      <h2 class="banner-text">
+        Discover Punjabi the fun way!<br />
+        🎵 Letters • Words • Games
+      </h2>
+    </div>
+  </header>
+
+  <!-- CLASSY LOGIN -->
+  <main class="login-container">
+    <div class="login-card">
+      <h1 class="brand-heading">meriLipi <span>Admin</span></h1>
+      <p class="tagline">Welcome back, let’s continue creating impact.</p>
+
+      <div class="input-box">
+        <input type="text" id="admin-userid" required />
+        <label>User ID</label>
+      </div>
+
+      <div class="input-box">
+        <input type="password" id="admin-password" required />
+        <label>Password</label>
+      </div>
+
+      <button class="login-btn">Login</button>
+    </div>
+  </main>
+
+  <script>
+    document.querySelector(".login-btn").addEventListener("click", () => {
+      const userId = document.getElementById("admin-userid").value.trim();
+      const password = document.getElementById("admin-password").value.trim();
+
+      if (userId === "lav111" && password === "punLearn22") {
+        document.querySelector(".login-btn").textContent = "Logging in...";
+        setTimeout(() => (window.location.href = "admin-panel.html"), 800);
+      } else {
+        alert("❌ Invalid credentials. Access denied.");
+      }
+    });
+  </script>
+</body>
+</html>
