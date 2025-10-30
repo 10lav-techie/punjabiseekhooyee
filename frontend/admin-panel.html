@@ -103,9 +103,19 @@
     window.db = db;
     window.firebaseExports = { collection, addDoc, getDocs, updateDoc, doc, deleteDoc };
   </script>
+  <script>
+    document.querySelector('.donate-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      // Optional: clear any saved admin data
+      localStorage.clear();
 
+      // Redirect to home page
+      window.location.href = "index.html";
+    });
+  </script>
   <!-- ===== JS FUNCTIONALITY ===== -->
   <script type="module" src="admin-panel.js"></script>
 </body>
 </html>
+
 
