@@ -43,7 +43,7 @@ function renderCourses(courses) {
     const div = document.createElement("div");
     div.classList.add("item-card");
     div.innerHTML = `
-      <span><strong>${c.title}</strong> — ${c.description}</span>
+      <span><strong>${c.title}</strong></span>
       <div>
         <button class="edit-course" data-id="${c.id}">Edit</button>
         <button class="delete-course" data-id="${c.id}">Delete</button>
@@ -197,3 +197,4 @@ function attachLectureListeners(courseId, lectures) {
 
 // Load all on start
 loadCourses();
+
